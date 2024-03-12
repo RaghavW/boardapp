@@ -98,6 +98,8 @@ const boardReducer = (state, action) => {
       });
       const newHistory = state.history.slice(0, state.index + 1);
       newHistory.push(newElements);
+
+      if (state.elements.length === newElements.length) return state;
       return {
         ...state,
         elements: newElements,
